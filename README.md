@@ -1,6 +1,12 @@
 # CircIdenticon
 Provides circular identicons for web pages.
 
+## Why:
+
+Most identicons seen on various websites have a blockish look to them.  They have a design that promotes such a look
+and feel.  But aesthetically, circles appeal to people more.  So, I wanted to build identicons that had a nicer aesthetic
+using circles and curves instead of blocks and triangles.
+
 ## Usage:
 
 Create a variable using a new CircIdenticon object, passing in the string for which you wish to create a CircIdenticon.

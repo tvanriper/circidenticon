@@ -14,7 +14,7 @@ a variable that it calls for a random number between 0 and 1.0.  I've used the o
 
 ## Example:
 
-```
+```html
 <html>
  <body>
   <h1>Header</h1>
@@ -47,7 +47,7 @@ $(function(){
 
 You can modify CircIdenticon's available colors by modifying the generated colors attribute:
 
-```
+```javascript
 var myCustomColors = [
 'Yellow',
 'Blue',
@@ -65,7 +65,7 @@ icon.colors = myCustomColors;
 The background circle, and the circle-over-the-background-circle colors pull from the same pool of background colors,
 which you may modify:
 
-```
+```javascript
 var myCustomBgColors = [
 'Black',
 'DarkGrey',

@@ -90,7 +90,7 @@ icon.bgColors = myCustomBgColors;
 If you want to embed the CircIdenticon within another SVG you're generating, call `createIdenticon()` instead of `buildSVG()`
 to generate the guts of the identicon without the SVG wrapper.
 
-## Example implementation
+## Example implementation:
 
 You can see this in action at my personal site on [fleeb.com](https://www.fleeb.com/circidenticon/).
 

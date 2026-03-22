@@ -1,11 +1,10 @@
-"use strict";
 /*
  * Dependencies:
  *
  * This library requires something like https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js to
  * ensure that the random numbers work properly.
  */
-class CircIdenticon {
+export class CircIdenticon {
     constructor(name) {
         this.name = name;
         this.colors = [
@@ -168,9 +167,4 @@ class CircIdenticon {
         return html + curve + `<circle cx="50" cy="50" r="${radius / 8}" fill="${strokeColor}" />`;
     }
 }
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-    module.exports = CircIdenticon;
-}
-if (typeof globalThis !== "undefined") {
-    globalThis.CircIdenticon = CircIdenticon;
-}
+export default CircIdenticon;

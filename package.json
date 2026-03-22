@@ -1,0 +1,26 @@
+{
+  "name": "circidenticon",
+  "version": "1.0.0",
+  "description": "Circular identicons for web pages",
+  "license": "Unlicense",
+  "main": "js/circidenticon.js",
+  "module": "js/circidenticon.esm.mjs",
+  "types": "js/circidenticon.esm.d.ts",
+  "exports": {
+    ".": {
+      "import": "./js/circidenticon.esm.mjs",
+      "require": "./js/circidenticon.js",
+      "types": "./js/circidenticon.esm.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:legacy && npm run build:esm",
+    "build:legacy": "tsc -p tsconfig.json",
+    "build:esm": "tsc -p tsconfig.esm.json && node -e \"require('fs').renameSync('js/circidenticon.esm.js','js/circidenticon.esm.mjs')\"",
+    "test:smoke": "npm run build && node test/smoke-modules.mjs",
+    "test": "npm run test:smoke"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}

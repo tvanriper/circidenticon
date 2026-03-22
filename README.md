@@ -2,6 +2,8 @@
 
 Provides circular identicons for web pages.
 
+Now authored in TypeScript, with JavaScript output for browser globals, Node/CommonJS, and ESM usage.
+
 ## Why
 
 Most identicons seen on various websites have a blockish look to them.  They have a design that promotes such a look
@@ -13,10 +15,64 @@ using circles and curves instead of blocks and triangles.
 Create a variable using a new CircIdenticon object, passing in the string for which you wish to create a CircIdenticon.
 Then call that variable's 'buildSVG()' function to generate the SVG.  Set your element's innerHTML to display it.
 
+### Browser (plain JavaScript)
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+<script src="js/circidenticon.js"></script>
+<script>
+  const icon = new CircIdenticon('myusername');
+  document.getElementById('identicon').innerHTML = icon.buildSVG();
+</script>
+```
+
+### Node / CommonJS JavaScript
+
+```javascript
+const CircIdenticon = require('./js/circidenticon.js');
+const icon = new CircIdenticon('myusername');
+console.log(icon.buildSVG());
+```
+
+### ESM JavaScript
+
+```javascript
+import CircIdenticon from './js/circidenticon.esm.mjs';
+
+const icon = new CircIdenticon('myusername');
+console.log(icon.buildSVG());
+```
+
+### TypeScript Development
+
+The source of truth is now `src/circidenticon.ts` (legacy/browser + CommonJS) and `src/circidenticon.esm.ts` (ESM).
+
+Build output is generated to:
+
+- `js/circidenticon.js` (browser global + CommonJS)
+- `js/circidenticon.d.ts` (legacy/CommonJS typings)
+- `js/circidenticon.esm.mjs` (ESM)
+- `js/circidenticon.esm.d.ts` (ESM typings)
+
+### Smoke test
+
+Run the interoperability smoke test (builds both targets, then verifies `require` and `import` produce equivalent deterministic SVG output):
+
+```bash
+npm test
+```
+
+```bash
+npm install
+npm run build
+```
+
 ## Dependencies
 
 CircIdenticon relies upon a stable, reproducable random number generator.  It calls `new Math.seedrandom(textVar)` to create
 a variable that it calls for a random number between 0 and 1.0.  I've used the one from [seedrandom](https://github.com/davidbau/seedrandom) without issue.
+
+For development/build only, TypeScript is used to compile the library.
 
 ## Example
 

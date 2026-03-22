@@ -76,6 +76,30 @@ For development/build only, TypeScript is used to compile the library.
 
 ## Example
 
+### Example outputs
+
+Generated from the following sources:
+
+- `tvanriper`
+- `circidenticon`
+
+| Source | Output |
+| --- | --- |
+| `tvanriper` | ![CircIdenticon for tvanriper](examples/tvanriper.svg) |
+| `circidenticon` | ![CircIdenticon for circidenticon](examples/circidenticon.svg) |
+
+To regenerate these SVG files after changing the generator or examples:
+
+```bash
+npm run build
+```
+
+If you only want to refresh example outputs without rebuilding TypeScript, run:
+
+```bash
+npm run generate:examples
+```
+
 ```html
 <html>
  <body>

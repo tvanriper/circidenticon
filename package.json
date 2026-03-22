@@ -14,9 +14,10 @@
     }
   },
   "scripts": {
-    "build": "npm run build:legacy && npm run build:esm",
+    "build": "npm run build:legacy && npm run build:esm && npm run generate:examples",
     "build:legacy": "tsc -p tsconfig.json",
     "build:esm": "tsc -p tsconfig.esm.json && node -e \"require('fs').renameSync('js/circidenticon.esm.js','js/circidenticon.esm.mjs')\"",
+    "generate:examples": "node -e \"const fs=require('fs'); function makeSeededRng(seed){let state=2166136261; for(let i=0;i<seed.length;i++){state^=seed.charCodeAt(i); state=Math.imul(state,16777619)>>>0;} return function(){state=(Math.imul(1664525,state)+1013904223)>>>0; return state/4294967296;};} Math.seedrandom=function(seed){return makeSeededRng(String(seed));}; const CircIdenticon=require('./js/circidenticon.js'); fs.mkdirSync('examples',{recursive:true}); for (const name of ['tvanriper','circidenticon']) { fs.writeFileSync('examples/'+name+'.svg', new CircIdenticon(name).buildSVG()+'\\n'); }\"",
     "test:smoke": "npm run build && node test/smoke-modules.mjs",
     "test": "npm run test:smoke"
   },
